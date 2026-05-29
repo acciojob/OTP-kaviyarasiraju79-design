@@ -1,6 +1,7 @@
 //your JS code here. If required.
 const codes = document.querySelectorAll('.code');
 
+// focus first input on load
 codes[0].focus();
 
 codes.forEach((code, index) => {
