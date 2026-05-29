@@ -1,32 +1,32 @@
 //your JS code here. If required.
-const inputs = document.querySelectorAll('.code');
+const codes = document.querySelectorAll('.code');
 
-// Focus first input on load
-inputs[0].focus();
+codes[0].focus();
 
-inputs.forEach((input, index) => {
+codes.forEach((code, index) => {
 
-  input.addEventListener('input', (e) => {
-    const value = e.target.value;
+  code.addEventListener('input', (e) => {
 
-    // allow only single digit
-    e.target.value = value.replace(/[^0-9]/g, '').slice(0, 1);
+    if (e.target.value.length === 1) {
 
-    if (value && index < inputs.length - 1) {
-      inputs[index + 1].focus();
+      if (index < codes.length - 1) {
+        codes[index + 1].focus();
+      }
+
     }
+
   });
 
-  input.addEventListener('keydown', (e) => {
+  code.addEventListener('keydown', (e) => {
 
     if (e.key === 'Backspace') {
 
-      if (input.value === '' && index > 0) {
-        inputs[index - 1].focus();
-        inputs[index - 1].value = '';
-        e.preventDefault();
+      if (code.value === '' && index > 0) {
+        codes[index - 1].focus();
       }
+
     }
+
   });
 
 });
